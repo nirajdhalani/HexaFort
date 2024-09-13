@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buggy's Cybersecurity Solutions</title>
+    <title>Buggy's PrimeSec Consulting</title>
     <style>
         /* General Reset */
         * {
@@ -17,11 +17,47 @@
             background-color: #0b0c10;
             color: #f5f5f5;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-size: 1.8em;
+            color: #66fcf1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1em;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #66fcf1;
         }
 
         /* Header Section */
@@ -31,6 +67,7 @@
             background-position: center;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -88,41 +125,6 @@
             }
         }
 
-        /* Navigation */
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #f5f5f5;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #66fcf1;
-        }
-
         /* Services Section */
         section#services {
             padding: 100px 0;
@@ -154,7 +156,7 @@
             text-align: center;
             width: 280px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .service-box:hover {
@@ -176,7 +178,6 @@
             padding: 100px 0;
             background-color: #0b0c10;
             color: #f5f5f5;
-            position: relative;
         }
 
         section#experience h2 {
@@ -207,6 +208,8 @@
             justify-content: center;
             align-items: flex-start;
             margin-bottom: 40px;
+            position: relative;
+            width: 100%;
         }
 
         .experience-box {
@@ -216,6 +219,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             width: 500px;
             position: relative;
+            z-index: 1;
         }
 
         .experience-box h3 {
@@ -259,7 +263,7 @@
             text-align: center;
             width: 260px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .cert-box:hover {
@@ -294,7 +298,7 @@
             text-decoration: none;
         }
 
-        /* Animation for smooth scroll and hover effects */
+        /* Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -305,7 +309,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
     </style>
 </head>
 <body>
@@ -325,12 +328,12 @@
     <header>
         <h1>Innovative Cybersecurity Solutions</h1>
         <p>Protecting your digital infrastructure across Web, Android, API, and Network ecosystems.</p>
-        <a href="#services">Explore Our Services</a>
+        <a href="#contact">Get in Touch</a>
     </header>
 
     <!-- Services Section -->
     <section id="services">
-        <h2>Our Services</h2>
+        <h2>Our Expertise</h2>
         <div class="services-container">
             <div class="service-box fade-in">
                 <h3>Web Application Security</h3>
@@ -389,10 +392,17 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any inquiries or need to discuss a project, feel free to get in touch with us.</p>
+        <p><a href="mailto:info@buggysolutions.com">Email Us</a></p>
+        <p><a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a> | <a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
+    </section>
+
     <!-- Footer -->
     <footer>
-        <p>© 2024 Buggy's Cybersecurity Solutions. All rights reserved.</p>
-        <p><a href="mailto:info@buggysolutions.com">Contact Us</a></p>
+        <p>© 2024 Buggy's PrimeSec Consulting. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript for Scroll Animations -->
