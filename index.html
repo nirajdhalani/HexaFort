@@ -3,308 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buggy's PrimeSec Consulting</title>
+    <title>CyberGuardians - Cybersecurity Solutions</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0b0c10;
-            color: #f5f5f5;
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #1e1e1e;
         }
-
-        /* Navigation */
-        nav {
+        header {
             position: fixed;
-            top: 0;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
             z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        nav h1 {
-            font-size: 1.8em;
-            color: #66fcf1;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
+        header a {
+            color: #f0f0f0;
             text-decoration: none;
-            color: #f5f5f5;
-            font-size: 1em;
-            text-transform: uppercase;
+            margin: 0 15px;
             font-weight: bold;
             transition: color 0.3s ease;
         }
-
-        nav ul li a:hover {
-            color: #66fcf1;
+        header a:hover {
+            color: #ff6600;
         }
-
-        /* Header Section */
-        header {
-            background-image: linear-gradient(to right bottom, rgba(34,34,34, 0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x900');
-            background-size: cover;
-            background-position: center;
+        section {
+            padding: 80px 20px;
+        }
+        .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center;
+            background-size: cover;
             text-align: center;
-            color: #f5f5f5;
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            animation: fadeInDown 1.2s ease;
-        }
-
-        header p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        header a {
-            text-decoration: none;
             color: #fff;
-            background: #45a29e;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        header a:hover {
-            background: #66fcf1;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Services Section */
-        section#services {
-            padding: 100px 0;
-            background-color: #1f2833;
-            color: #f5f5f5;
-        }
-
-        section#services h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-            color: #66fcf1;
-        }
-
-        .services-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .service-box {
-            background-color: #0b0c10;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            width: 280px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .service-box:hover {
-            transform: translateY(-10px);
-            background-color: #45a29e;
-        }
-
-        .service-box h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        .service-box p {
-            font-size: 1.1em;
-        }
-
-        /* Experience Section */
-        section#experience {
-            padding: 100px 0;
-            background-color: #0b0c10;
-            color: #f5f5f5;
-        }
-
-        section#experience h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-            color: #66fcf1;
-        }
-
-        .timeline {
             position: relative;
-            max-width: 80%;
-            margin: 0 auto;
         }
-
-        .timeline::before {
+        .hero::after {
             content: '';
             position: absolute;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background-color: #45a29e;
-        }
-
-        .experience-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            position: relative;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
         }
-
-        .experience-box {
-            background-color: #1f2833;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 500px;
+        .hero-content {
             position: relative;
             z-index: 1;
         }
-
-        .experience-box h3 {
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
             font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #66fcf1;
         }
-
-        .experience-box p {
-            font-size: 1.1em;
+        .service-box, .cert-box, .experience-box {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        /* Certifications Section */
-        section#certifications {
-            padding: 100px 0;
-            background-color: #1f2833;
-            color: #f5f5f5;
+        .service-box:hover, .cert-box:hover, .experience-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
-
-        section#certifications h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-            color: #66fcf1;
-        }
-
-        .certifications-container {
+        .services-container, .certifications-container, .timeline {
             display: flex;
-            justify-content: center;
-            gap: 30px;
             flex-wrap: wrap;
-            width: 80%;
-            margin: 0 auto;
+            justify-content: center;
         }
-
-        .cert-box {
-            background-color: #0b0c10;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            width: 260px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+        .timeline {
+            position: relative;
         }
-
-        .cert-box:hover {
-            transform: translateY(-10px);
-            background-color: #45a29e;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #ff6600;
+            transform: translateX(-50%);
         }
-
-        .cert-box h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+        .experience-container {
+            position: relative;
+            width: 50%;
+            padding: 10px;
         }
-
-        .cert-box p {
-            font-size: 1.1em;
+        .experience-container:nth-child(odd) {
+            left: 0;
         }
-
-        /* Footer */
+        .experience-container:nth-child(even) {
+            left: 50%;
+        }
+        .experience-box {
+            position: relative;
+            margin: 10px 0;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background: #ff6600;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact-form button:hover {
+            background: #e65c00;
+        }
         footer {
-            background-color: #0b0c10;
-            padding: 30px 0;
+            background: #333;
+            color: #fff;
             text-align: center;
-            color: #f5f5f5;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
-
-        footer p {
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: #66fcf1;
-            text-decoration: none;
-        }
-
-        /* Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -312,24 +160,21 @@
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <h1>Buggy's PrimeSec Consulting</h1>
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Header Section -->
     <header>
-        <h1>Innovative Cybersecurity Solutions</h1>
-        <p>Protecting your digital infrastructure across Web, Android, API, and Network ecosystems.</p>
-        <a href="#contact">Get in Touch</a>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
     </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to CyberGuardians</h1>
+            <p>Your Partner in Cutting-Edge Cybersecurity Solutions</p>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services">
@@ -396,33 +241,33 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <p>If you have any inquiries or need to discuss a project, feel free to get in touch with us.</p>
-        <p><a href="mailto:info@buggysolutions.com">Email Us</a></p>
-        <p><a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a> | <a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
+        <form class="contact-form" action="mailto:info@cyberguardians.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p>Connect with us: <a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a> | <a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Buggy's PrimeSec Consulting. All rights reserved.</p>
+        <p>© 2024 CyberGuardians. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Scroll Animations -->
     <script>
-        const elements = document.querySelectorAll('.fade-in');
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        elements.forEach(element => {
-            observer.observe(element);
+            elements.forEach(el => observer.observe(el));
         });
     </script>
-
 </body>
 </html>
