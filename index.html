@@ -11,66 +11,65 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #0e0e0e;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0c10;
             color: #f5f5f5;
             line-height: 1.6;
         }
 
-        /* Hero Section */
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Section */
         header {
-            background-image: url('https://via.placeholder.com/1920x800');
+            background-image: linear-gradient(to right bottom, rgba(34,34,34, 0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x900');
             background-size: cover;
             background-position: center;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #f5f5f5;
             position: relative;
         }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
-        }
+
         header h1 {
-            font-size: 3.5em;
-            z-index: 2;
-            margin-bottom: 10px;
-            animation: fadeInDown 1s ease;
-        }
-        header p {
-            font-size: 1.2em;
-            z-index: 2;
+            font-size: 4em;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
+            letter-spacing: 2px;
+            animation: fadeInDown 1.2s ease;
         }
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.2s ease;
+        }
+
         header a {
             text-decoration: none;
-            background: #e84545;
-            color: #f5f5f5;
-            padding: 10px 30px;
+            color: #fff;
+            background: #45a29e;
+            padding: 15px 30px;
             border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
             transition: background 0.3s ease;
-            z-index: 2;
         }
+
         header a:hover {
-            background: #d82323;
+            background: #66fcf1;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -81,7 +80,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -92,82 +91,216 @@
         /* Navigation */
         nav {
             position: absolute;
-            top: 20px;
+            top: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 50px;
-            z-index: 2;
+            padding: 20px 50px;
+            z-index: 1000;
         }
+
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
         }
+
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
+
         nav ul li a {
             text-decoration: none;
             color: #f5f5f5;
-            font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 1em;
             transition: color 0.3s ease;
         }
+
         nav ul li a:hover {
-            color: #e84545;
+            color: #66fcf1;
         }
 
-        /* Sections */
-        section {
-            padding: 80px 0;
-            background: #1a1a1a;
+        /* Services Section */
+        section#services {
+            padding: 100px 0;
+            background-color: #1f2833;
+            color: #f5f5f5;
         }
-        .container {
+
+        section#services h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            color: #66fcf1;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
             width: 80%;
             margin: 0 auto;
         }
-        .service-grid, .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service, .certification {
-            background: #282828;
-            padding: 30px;
-            border-radius: 10px;
+
+        .service-box {
+            background-color: #0b0c10;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
         }
-        .service:hover, .certification:hover {
+
+        .service-box:hover {
             transform: translateY(-10px);
-            background: #333333;
+            background-color: #45a29e;
         }
-        h2 {
-            font-size: 2.5em;
+
+        .service-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .service-box p {
+            font-size: 1.1em;
+        }
+
+        /* Experience Section */
+        section#experience {
+            padding: 100px 0;
+            background-color: #0b0c10;
             color: #f5f5f5;
+            position: relative;
+        }
+
+        section#experience h2 {
             text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            color: #66fcf1;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: #45a29e;
+        }
+
+        .experience-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             margin-bottom: 40px;
         }
-        p {
-            color: #d1d1d1;
+
+        .experience-box {
+            background-color: #1f2833;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            position: relative;
+        }
+
+        .experience-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #66fcf1;
+        }
+
+        .experience-box p {
+            font-size: 1.1em;
+        }
+
+        /* Certifications Section */
+        section#certifications {
+            padding: 100px 0;
+            background-color: #1f2833;
+            color: #f5f5f5;
+        }
+
+        section#certifications h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            color: #66fcf1;
+        }
+
+        .certifications-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .cert-box {
+            background-color: #0b0c10;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 260px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-box:hover {
+            transform: translateY(-10px);
+            background-color: #45a29e;
+        }
+
+        .cert-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .cert-box p {
             font-size: 1.1em;
         }
 
         /* Footer */
         footer {
-            background: #0e0e0e;
-            padding: 40px 0;
+            background-color: #0b0c10;
+            padding: 30px 0;
             text-align: center;
             color: #f5f5f5;
         }
 
-        /* Animation */
+        footer p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #66fcf1;
+            text-decoration: none;
+        }
+
+        /* Animation for smooth scroll and hover effects */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -176,9 +309,10 @@
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
-        <a href="#"><h3>Buggy's Cybersecurity</h3></a>
+        <h1>Buggy's Cybersecurity</h1>
         <ul>
             <li><a href="#services">Services</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -187,97 +321,98 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Header Section -->
     <header>
         <h1>Innovative Cybersecurity Solutions</h1>
-        <p>Protecting Web, Android, API, and Network Infrastructures</p>
+        <p>Protecting your digital infrastructure across Web, Android, API, and Network ecosystems.</p>
         <a href="#services">Explore Our Services</a>
     </header>
 
     <!-- Services Section -->
     <section id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service fade-in">
-                    <h3>Web Penetration Testing</h3>
-                    <p>Identifying vulnerabilities in your web applications, ensuring full protection from external threats.</p>
-                </div>
-                <div class="service fade-in">
-                    <h3>Android App Penetration Testing</h3>
-                    <p>Ensuring your mobile apps are secure from any form of attack.</p>
-                </div>
-                <div class="service fade-in">
-                    <h3>API Security Testing</h3>
-                    <p>Comprehensive testing to safeguard your APIs from exposure to unauthorized access.</p>
-                </div>
-                <div class="service fade-in">
-                    <h3>Network Penetration Testing</h3>
-                    <p>Evaluating and securing your network infrastructures against attacks.</p>
-                </div>
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-box fade-in">
+                <h3>Web Application Security</h3>
+                <p>Ensuring your web applications are protected against advanced threats with our extensive expertise.</p>
+            </div>
+            <div class="service-box fade-in">
+                <h3>API Security</h3>
+                <p>From securing endpoints to preventing API abuse, we fortify your application programming interfaces.</p>
+            </div>
+            <div class="service-box fade-in">
+                <h3>Mobile Security</h3>
+                <p>Comprehensive security audits for Android apps to prevent data breaches and malware exploits.</p>
+            </div>
+            <div class="service-box fade-in">
+                <h3>Network Pentesting</h3>
+                <p>Simulating real-world attacks to uncover vulnerabilities in your network infrastructure.</p>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience">
-        <div class="container">
-            <h2>Our Experience</h2>
-            <p>We've successfully delivered over 150 projects in cybersecurity, working with companies like:</p>
-            <ul>
-                <li>Amazon</li>
-                <li>Lyft</li>
-                <li>Oppo</li>
-                <li>HubSpot</li>
-                <li>Subflash</li>
-                <li>Volkswagen</li>
-            </ul>
-            <p>We actively participate in bug bounty programs on platforms like <a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd</a> and <a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne</a>.</p>
+        <h2>Our Experience</h2>
+        <div class="timeline">
+            <div class="experience-container">
+                <div class="experience-box fade-in">
+                    <h3>Project 1: Web Security for XYZ Corp</h3>
+                    <p>Delivered a comprehensive vulnerability assessment that identified 20+ security gaps, leading to improved resilience.</p>
+                </div>
+            </div>
+            <div class="experience-container">
+                <div class="experience-box fade-in">
+                    <h3>Project 2: Mobile App Pentest for ABC Ltd.</h3>
+                    <p>Identified critical issues in Android applications, securing data of over 1 million users.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
     <section id="certifications">
-        <div class="container">
-            <h2>Certifications</h2>
-            <div class="certifications-grid">
-                <div class="certification fade-in">
-                    <h3>Buggy's Certifications</h3>
-                    <p>Certified AppSec Pentester (CAPen)</p>
-                </div>
-                <div class="certification fade-in">
-                    <h3>Friend's Certifications</h3>
-                    <p>OSCP (Offensive Security Certified Professional)</p>
-                    <p>Certified Network Pentester (CNPen)</p>
-                </div>
+        <h2>Our Certifications</h2>
+        <div class="certifications-container">
+            <div class="cert-box fade-in">
+                <h3>OSCP</h3>
+                <p>Offensive Security Certified Professional</p>
+            </div>
+            <div class="cert-box fade-in">
+                <h3>CNPen</h3>
+                <p>Certified Network Pentester</p>
+            </div>
+            <div class="cert-box fade-in">
+                <h3>CAPen</h3>
+                <p>Certified AppSec Pentester</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Buggy's Cybersecurity Solutions. All rights reserved.</p>
+        <p>© 2024 Buggy's Cybersecurity Solutions. All rights reserved.</p>
+        <p><a href="mailto:info@buggysolutions.com">Contact Us</a></p>
     </footer>
 
+    <!-- JavaScript for Scroll Animations -->
     <script>
-        // Intersection Observer for Animations
-        const faders = document.querySelectorAll('.fade-in');
+        const elements = document.querySelectorAll('.fade-in');
 
-        const options = {
-            threshold: 0.1
-        };
-
-        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }, options);
+        }, {
+            threshold: 0.1
+        });
 
-        faders.forEach(fade => {
-            appearOnScroll.observe(fade);
+        elements.forEach(element => {
+            observer.observe(element);
         });
     </script>
+
 </body>
 </html>
