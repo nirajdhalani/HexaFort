@@ -6,52 +6,57 @@
     <title>Cyber Guardians</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-            background-color: #f4f4f4;
+            background: #f4f4f4;
             overflow-x: hidden;
         }
         header {
-            background-color: #1a1a1a;
-            color: white;
+            background: #0a0a0a;
+            color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            font-weight: bold;
+            text-align: center;
         }
         nav {
+            display: flex;
+            justify-content: center;
             margin: 0;
             padding: 0;
             list-style: none;
         }
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             padding: 15px 20px;
             display: inline-block;
-            transition: background 0.3s ease;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #333;
+            background: #333;
+            color: #fff;
         }
         .hero {
-            background: url('your-hero-image.jpg') no-repeat center center/cover;
-            color: white;
+            background: url('hero-background.jpg') no-repeat center center/cover;
+            color: #fff;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
             margin-top: 80px;
             position: relative;
             overflow: hidden;
+            background-blur: 5px;
         }
         .hero h2 {
             font-size: 3em;
@@ -66,8 +71,8 @@
         .hero button {
             background-color: #61dafb;
             border: none;
-            color: white;
-            padding: 15px 25px;
+            color: #fff;
+            padding: 15px 30px;
             font-size: 1.2em;
             cursor: pointer;
             border-radius: 5px;
@@ -79,16 +84,18 @@
         .section {
             padding: 60px 20px;
             text-align: center;
-            background-color: #ffffff;
+            background: #fff;
             border-bottom: 1px solid #ddd;
         }
         .section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
+            color: #333;
         }
         .section p {
             font-size: 1.2em;
             margin-bottom: 40px;
+            color: #666;
         }
         .section img {
             max-width: 80%;
@@ -107,14 +114,14 @@
             width: 100%;
             padding: 15px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
         .contact-form button {
             background-color: #61dafb;
             border: none;
-            color: white;
-            padding: 15px 25px;
+            color: #fff;
+            padding: 15px 30px;
             font-size: 1.2em;
             cursor: pointer;
             border-radius: 5px;
@@ -124,8 +131,8 @@
             background-color: #4fa3c3;
         }
         footer {
-            background-color: #1a1a1a;
-            color: white;
+            background-color: #0a0a0a;
+            color: #fff;
             text-align: center;
             padding: 20px 0;
         }
@@ -135,10 +142,10 @@
         }
         @media (max-width: 768px) {
             .hero h2 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
             .hero p {
-                font-size: 1.1em;
+                font-size: 1.2em;
             }
         }
         @keyframes fadeIn {
@@ -159,42 +166,40 @@
     </header>
 
     <section class="hero">
-        <h2>Your Cybersecurity Experts for a Safer Tomorrow</h2>
-        <p>Specializing in Penetration Testing, Web Security, API Security, and More</p>
+        <h2>Your Cybersecurity Experts</h2>
+        <p>Protecting Your Digital World with Expertise and Precision</p>
         <button>Get a Free Consultation</button>
     </section>
 
     <section id="about" class="section">
-        <h2>Meet the Experts</h2>
-        <p>With over 150 successful projects and a range of professional certifications, we are dedicated to providing top-notch cybersecurity services.</p>
-        <img src="your-team-image.jpg" alt="Team Photo">
-        <h2>Our Journey</h2>
-        <p>From securing high-profile programs to actively participating in bug bounty programs, our journey is marked by a commitment to excellence and innovation in cybersecurity.</p>
+        <h2>About Us</h2>
+        <p>With over 150 successful projects, Cyber Guardians is dedicated to providing exceptional cybersecurity services. Our team consists of highly skilled professionals committed to safeguarding your digital assets.</p>
+        <img src="team-photo.jpg" alt="Our Team">
     </section>
 
     <section id="services" class="section">
         <h2>Our Services</h2>
-        <p>We offer a range of services to keep your systems secure:</p>
+        <p>We offer comprehensive cybersecurity solutions tailored to your needs:</p>
         <ul>
-            <li><strong>Penetration Testing:</strong> Thorough testing to identify vulnerabilities in web, API, and network systems.</li>
-            <li><strong>Web Security Assessments:</strong> Ensuring the security of your web applications from the latest threats.</li>
-            <li><strong>Mobile App Security:</strong> Comprehensive assessments of Android applications to find and fix security issues.</li>
-            <li><strong>Bug Bounty Programs:</strong> Participating in and managing bug bounty programs for various organizations.</li>
+            <li><strong>Penetration Testing:</strong> Identifying and addressing vulnerabilities in your systems.</li>
+            <li><strong>Web Security:</strong> Ensuring your web applications are secure from the latest threats.</li>
+            <li><strong>Mobile App Security:</strong> Assessing and improving the security of Android applications.</li>
+            <li><strong>Bug Bounty Programs:</strong> Managing and participating in bug bounty programs to find and fix issues.</li>
         </ul>
     </section>
 
     <section id="certifications" class="section">
         <h2>Our Credentials</h2>
-        <p>Our certifications validate our expertise and commitment to industry standards:</p>
+        <p>Our certifications demonstrate our commitment to industry standards:</p>
         <ul>
             <li>OSCP (Offensive Security Certified Professional) - [Friend's Name]</li>
             <li>Certified Network Pentester (CNPen) - [Friend's Name]</li>
             <li>Certified AppSec Pentester (CAPen) - Buggy</li>
         </ul>
         <h2>Bug Bounty Success</h2>
-        <p>Our active participation in bug bounty programs has secured programs for leading companies such as Amazon, Lyft, Oppo, HubSpot, Subflash, Volkswagen, and many more.</p>
-        <p><a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a></p>
-        <p><a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
+        <p>We have secured programs for major companies including Amazon, Lyft, Oppo, HubSpot, Subflash, Volkswagen, and many more.</p>
+        <p><a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">View Bugcrowd Profile</a></p>
+        <p><a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">View HackerOne Profile</a></p>
     </section>
 
     <section id="contact" class="section">
