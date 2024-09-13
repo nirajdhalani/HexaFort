@@ -3,273 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberGuardians - Cybersecurity Solutions</title>
+    <title>Cyber Guardians</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            color: #fff;
-            background: #121212;
-            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
         }
         header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: #1e1e1e;
-            color: #fff;
-            padding: 20px;
+            background-color: #282c34;
+            color: white;
+            padding: 10px 0;
             text-align: center;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        header a {
-            color: #f0f0f0;
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        nav a {
+            color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        header a:hover {
-            color: #ff6600;
-        }
-        section {
-            padding: 80px 20px;
+            padding: 15px 20px;
+            display: inline-block;
         }
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center;
-            background-size: cover;
+            background: url('your-hero-image.jpg') no-repeat center center/cover;
+            color: white;
             text-align: center;
-            color: #fff;
+            padding: 100px 20px;
             position: relative;
-            overflow: hidden;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 4em;
+        .hero h2 {
+            font-size: 2.5em;
             margin: 0;
-            animation: fadeIn 2s ease-out;
         }
         .hero p {
-            font-size: 1.5em;
-            animation: fadeIn 2s ease-out 0.5s;
+            font-size: 1.2em;
+            margin: 20px 0;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero button {
+            background-color: #61dafb;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
         }
-        .services, .certifications, .experience, .contact {
-            background: #1e1e1e;
-            border-radius: 10px;
-            padding: 40px;
-            margin: 20px auto;
-            max-width: 1200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .services h2, .certifications h2, .experience h2, .contact h2 {
+        .section {
+            padding: 60px 20px;
             text-align: center;
+        }
+        .section h2 {
+            font-size: 2em;
             margin-bottom: 20px;
-            font-size: 2.5em;
-            color: #ff6600;
         }
-        .service-box, .cert-box, .experience-box {
-            background: #333;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .section p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
         }
-        .service-box:hover, .cert-box:hover, .experience-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-        .service-box::before, .cert-box::before, .experience-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 102, 0, 0.1);
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
-        .service-box:hover::before, .cert-box:hover::before, .experience-box:hover::before {
-            opacity: 1;
-        }
-        .services-container, .certifications-container, .experience-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .contact-form {
             display: flex;
             flex-direction: column;
-            max-width: 600px;
-            margin: auto;
+            align-items: center;
         }
         .contact-form input, .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
             padding: 10px;
             margin: 10px 0;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .contact-form button {
-            padding: 10px;
-            background: #ff6600;
+            background-color: #61dafb;
             border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 18px;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .contact-form button:hover {
-            background: #e65c00;
+            border-radius: 5px;
         }
         footer {
-            background: #1e1e1e;
-            color: #fff;
+            background-color: #282c34;
+            color: white;
             text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 0;
         }
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5em;
-            color: #ff6600;
-            animation: bounce 1s infinite;
+        footer a {
+            color: #61dafb;
+            text-decoration: none;
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2em;
             }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
+            .hero p {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
+        <h1>Cyber Guardians</h1>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to CyberGuardians</h1>
-            <p>Your Partner in Cutting-Edge Cybersecurity Solutions</p>
-        </div>
-        <div class="scroll-indicator">↓</div>
+    <section class="hero">
+        <h2>Your Cybersecurity Experts for a Safer Tomorrow</h2>
+        <p>Specializing in Penetration Testing, Web Security, API Security, and More</p>
+        <button>Get a Free Consultation</button>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Our Expertise</h2>
-        <div class="services-container">
-            <div class="service-box">
-                <h3>Web Application Security</h3>
-                <p>Ensuring your web applications are protected against advanced threats with our extensive expertise.</p>
-            </div>
-            <div class="service-box">
-                <h3>API Security</h3>
-                <p>From securing endpoints to preventing API abuse, we fortify your application programming interfaces.</p>
-            </div>
-            <div class="service-box">
-                <h3>Mobile Security</h3>
-                <p>Comprehensive security audits for Android apps to prevent data breaches and malware exploits.</p>
-            </div>
-            <div class="service-box">
-                <h3>Network Pentesting</h3>
-                <p>Simulating real-world attacks to uncover vulnerabilities in your network infrastructure.</p>
-            </div>
-        </div>
+    <section id="about" class="section">
+        <h2>Meet the Experts</h2>
+        <p>With over 150 successful projects and a range of professional certifications, we are dedicated to providing top-notch cybersecurity services.</p>
+        <img src="your-team-image.jpg" alt="Team Photo">
+        <h2>Our Journey</h2>
+        <p>From securing high-profile programs to actively participating in bug bounty programs, our journey is marked by a commitment to excellence and innovation in cybersecurity.</p>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <h2>Our Experience</h2>
-        <p>With over 150 successful projects, we bring unparalleled expertise to each engagement. Our team has extensive knowledge in web, API, and network pentesting. We are currently working as security consultants, applying our skills to protect and enhance cybersecurity for our clients.</p>
-        <div class="experience-container">
-            <div class="experience-box">
-                <h3>Project 1: Web Security for XYZ Corp</h3>
-                <p>Delivered a comprehensive vulnerability assessment that identified 20+ security gaps, leading to improved resilience.</p>
-            </div>
-            <div class="experience-box">
-                <h3>Project 2: Mobile App Pentest for ABC Ltd.</h3>
-                <p>Identified critical issues in Android applications, securing data of over 1 million users.</p>
-            </div>
-        </div>
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <p>We offer a range of services to keep your systems secure:</p>
+        <ul>
+            <li><strong>Penetration Testing:</strong> Thorough testing to identify vulnerabilities in web, API, and network systems.</li>
+            <li><strong>Web Security Assessments:</strong> Ensuring the security of your web applications from the latest threats.</li>
+            <li><strong>Mobile App Security:</strong> Comprehensive assessments of Android applications to find and fix security issues.</li>
+            <li><strong>Bug Bounty Programs:</strong> Participating in and managing bug bounty programs for various organizations.</li>
+        </ul>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <h2>Our Certifications</h2>
-        <div class="certifications-container">
-            <div class="cert-box">
-                <h3>OSCP</h3>
-                <p>Offensive Security Certified Professional</p>
-            </div>
-            <div class="cert-box">
-                <h3>CNPen</h3>
-                <p>Certified Network Pentester</p>
-            </div>
-            <div class="cert-box">
-                <h3>CAPen</h3>
-                <p>Certified AppSec Pentester</p>
-            </div>
-        </div>
+    <section id="certifications" class="section">
+        <h2>Our Credentials</h2>
+        <p>Our certifications validate our expertise and commitment to industry standards:</p>
+        <ul>
+            <li>OSCP (Offensive Security Certified Professional) - [Friend's Name]</li>
+            <li>Certified Network Pentester (CNPen) - [Friend's Name]</li>
+            <li>Certified AppSec Pentester (CAPen) - Buggy</li>
+        </ul>
+        <h2>Bug Bounty Success</h2>
+        <p>Our active participation in bug bounty programs has secured programs for leading companies such as Amazon, Lyft, Oppo, HubSpot, Subflash, Volkswagen, and many more.</p>
+        <p><a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a></p>
+        <p><a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section">
         <h2>Contact Us</h2>
-        <form class="contact-form" action="submit_form.php" method="post">
+        <form class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
             <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2024 CyberGuardians. All rights reserved.</p>
+        <p>© 2024 Cyber Guardians. All Rights Reserved.</p>
+        <p><a href="#home">Back to Top</a></p>
     </footer>
 </body>
 </html>
