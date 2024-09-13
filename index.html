@@ -9,19 +9,20 @@
             margin: 0;
             font-family: Arial, sans-serif;
             color: #fff;
-            background: #1e1e1e;
+            background: #121212;
+            overflow-x: hidden;
         }
         header {
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            background: #333;
+            background: #1e1e1e;
             color: #fff;
             padding: 20px;
             text-align: center;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         header a {
             color: #f0f0f0;
@@ -47,6 +48,7 @@
             text-align: center;
             color: #fff;
             position: relative;
+            overflow: hidden;
         }
         .hero::after {
             content: '';
@@ -56,17 +58,38 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .hero h1 {
-            font-size: 3em;
+            font-size: 4em;
             margin: 0;
+            animation: fadeIn 2s ease-out;
         }
         .hero p {
             font-size: 1.5em;
+            animation: fadeIn 2s ease-out 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .services, .certifications, .experience, .contact {
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .services h2, .certifications h2, .experience h2, .contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #ff6600;
         }
         .service-box, .cert-box, .experience-box {
             background: #333;
@@ -75,43 +98,31 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         .service-box:hover, .cert-box:hover, .experience-box:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
-        .services-container, .certifications-container, .timeline {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .timeline {
-            position: relative;
-        }
-        .timeline::before {
+        .service-box::before, .cert-box::before, .experience-box::before {
             content: '';
             position: absolute;
             top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 2px;
-            background: #ff6600;
-            transform: translateX(-50%);
-        }
-        .experience-container {
-            position: relative;
-            width: 50%;
-            padding: 10px;
-        }
-        .experience-container:nth-child(odd) {
             left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 102, 0, 0.1);
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
-        .experience-container:nth-child(even) {
-            left: 50%;
+        .service-box:hover::before, .cert-box:hover::before, .experience-box:hover::before {
+            opacity: 1;
         }
-        .experience-box {
-            position: relative;
-            margin: 10px 0;
+        .services-container, .certifications-container, .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .contact-form {
             display: flex;
@@ -140,22 +151,33 @@
             background: #e65c00;
         }
         footer {
-            background: #333;
+            background: #1e1e1e;
             color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             position: relative;
             bottom: 0;
             width: 100%;
         }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: #ff6600;
+            animation: bounce 1s infinite;
         }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
@@ -174,25 +196,26 @@
             <h1>Welcome to CyberGuardians</h1>
             <p>Your Partner in Cutting-Edge Cybersecurity Solutions</p>
         </div>
+        <div class="scroll-indicator">↓</div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="services">
         <h2>Our Expertise</h2>
         <div class="services-container">
-            <div class="service-box fade-in">
+            <div class="service-box">
                 <h3>Web Application Security</h3>
                 <p>Ensuring your web applications are protected against advanced threats with our extensive expertise.</p>
             </div>
-            <div class="service-box fade-in">
+            <div class="service-box">
                 <h3>API Security</h3>
                 <p>From securing endpoints to preventing API abuse, we fortify your application programming interfaces.</p>
             </div>
-            <div class="service-box fade-in">
+            <div class="service-box">
                 <h3>Mobile Security</h3>
                 <p>Comprehensive security audits for Android apps to prevent data breaches and malware exploits.</p>
             </div>
-            <div class="service-box fade-in">
+            <div class="service-box">
                 <h3>Network Pentesting</h3>
                 <p>Simulating real-world attacks to uncover vulnerabilities in your network infrastructure.</p>
             </div>
@@ -200,37 +223,34 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" class="experience">
         <h2>Our Experience</h2>
-        <div class="timeline">
-            <div class="experience-container">
-                <div class="experience-box fade-in">
-                    <h3>Project 1: Web Security for XYZ Corp</h3>
-                    <p>Delivered a comprehensive vulnerability assessment that identified 20+ security gaps, leading to improved resilience.</p>
-                </div>
+        <p>With over 150 successful projects, we bring unparalleled expertise to each engagement. Our team has extensive knowledge in web, API, and network pentesting. We are currently working as security consultants, applying our skills to protect and enhance cybersecurity for our clients.</p>
+        <div class="experience-container">
+            <div class="experience-box">
+                <h3>Project 1: Web Security for XYZ Corp</h3>
+                <p>Delivered a comprehensive vulnerability assessment that identified 20+ security gaps, leading to improved resilience.</p>
             </div>
-            <div class="experience-container">
-                <div class="experience-box fade-in">
-                    <h3>Project 2: Mobile App Pentest for ABC Ltd.</h3>
-                    <p>Identified critical issues in Android applications, securing data of over 1 million users.</p>
-                </div>
+            <div class="experience-box">
+                <h3>Project 2: Mobile App Pentest for ABC Ltd.</h3>
+                <p>Identified critical issues in Android applications, securing data of over 1 million users.</p>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications">
+    <section id="certifications" class="certifications">
         <h2>Our Certifications</h2>
         <div class="certifications-container">
-            <div class="cert-box fade-in">
+            <div class="cert-box">
                 <h3>OSCP</h3>
                 <p>Offensive Security Certified Professional</p>
             </div>
-            <div class="cert-box fade-in">
+            <div class="cert-box">
                 <h3>CNPen</h3>
                 <p>Certified Network Pentester</p>
             </div>
-            <div class="cert-box fade-in">
+            <div class="cert-box">
                 <h3>CAPen</h3>
                 <p>Certified AppSec Pentester</p>
             </div>
@@ -238,36 +258,18 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <p>If you have any inquiries or need to discuss a project, feel free to get in touch with us.</p>
-        <form class="contact-form" action="mailto:info@cyberguardians.com" method="post" enctype="text/plain">
+        <form class="contact-form" action="submit_form.php" method="post">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p>Connect with us: <a href="https://bugcrowd.com/nirajdhalani/achievements" target="_blank">Bugcrowd Profile</a> | <a href="https://hackerone.com/nirajdhalani?type=user" target="_blank">HackerOne Profile</a></p>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>© 2024 CyberGuardians. All Rights Reserved.</p>
+        <p>&copy; 2024 CyberGuardians. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            elements.forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
