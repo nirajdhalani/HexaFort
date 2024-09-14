@@ -17,11 +17,18 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: #1e1e1e;
             color: #fff;
             padding: 20px;
             text-align: center;
             z-index: 1000;
+            transition: background-color 0.5s ease;
+        }
+        header.transparent {
+            background-color: transparent;
+        }
+
+        header.solid {
+            background-color: #333; /* Solid background color */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         header a {
@@ -63,20 +70,40 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: right;
+            margin-right: 7vw;
+            /* background-color: #e65c00; */
+            margin-left: 50vw;
         }
-        .hero h1 {
+        .hero-content h1{
+            /* display: inline-block; */
             font-size: 4em;
-            margin: 0;
-            animation: fadeIn 2s ease-out;
+            margin-bottom: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end);
         }
-        .hero p {
-            font-size: 1.5em;
-            animation: fadeIn 2s ease-out 0.5s;
+        .hero-content p{
+            display: inline-block;
+            font-size: 1.67em; 
+            white-space: nowrap;
+            overflow: hidden;
+            color: #949494;
+            visibility: hidden;
+            animation: typing 5s steps(40, end) 4s forwards;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        @keyframes typing {
+            from {
+                width: 0;
+                visibility: visible;
+            }
+            to {
+                width: 100%;
+                visibility: visible;
+            }
         }
+
         .services, .certifications, .experience, .contact {
             background: #1e1e1e;
             border-radius: 10px;
@@ -91,7 +118,11 @@
             font-size: 2.5em;
             color: #ff6600;
         }
+        .cert-box{
+            width: 10vw;
+        }
         .service-box, .cert-box, .experience-box {
+            text-align: center;
             background: #333;
             padding: 20px;
             border-radius: 8px;
@@ -124,20 +155,26 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+        .contact-form-container{
+            display: flex;
+            text-align: center;
+            /* justify-self: center; */
+            flex-direction: column;
+        }
         .contact-form {
             display: flex;
             flex-direction: column;
             max-width: 600px;
             margin: auto;
         }
-        .contact-form input, .contact-form textarea {
+        .contact-form-desc {
             padding: 10px;
             margin: 10px 0;
             border: none;
             border-radius: 4px;
             font-size: 16px;
         }
-        .contact-form button {
+        .contact-form-button {
             padding: 10px;
             background: #ff6600;
             border: none;
@@ -179,9 +216,76 @@
                 transform: translateY(-10px);
             }
         }
+        .marquee {
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            width: 100%;
+            border-radius: 22px;
+            white-space: nowrap;
+            }
+
+        .marquee--inner {
+            display: block;
+            width: 180%;
+            position: absolute;
+            animation: marquee 10s linear infinite;
+            &:hover {
+                animation-play-state: paused;
+                color: red;
+            }
+        }
+        span {
+            float: left;
+            width: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes marquee {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -90%;
+            }
+        }
+        span img {
+            padding: 1vw;
+        }
+        .contact-form-container img{
+            /* background-color: #e65c00; */
+            align-self: center;
+            margin-bottom: -100px;
+            margin-top: -60px;
+            padding: 0;
+
+        }
+        .contact-form-container p{
+            /* background-color: #e65c00; */
+            font-size: 1.5em; 
+        }
     </style>
 </head>
 <body>
+    <script>
+        // Function to change the navbar background on scroll
+        window.addEventListener('scroll', function() {
+            let navbar = document.querySelector('header');
+            if (window.scrollY > 100) { // Add solid background after scrolling 100px
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+    </script>
     <header>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
@@ -193,8 +297,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to CyberGuardians</h1>
-            <p>Your Partner in Cutting-Edge Cybersecurity Solutions</p>
+            <h1>Welcome to HexaFort Security</h1>
+            <p>Breaking through every layer, securing your digital horizon</p>
         </div>
         <div class="scroll-indicator">↓</div>
     </section>
@@ -203,21 +307,29 @@
     <section id="services" class="services">
         <h2>Our Expertise</h2>
         <div class="services-container">
-            <div class="service-box">
+            <div class="service-box" style="width: 80%">
                 <h3>Web Application Security</h3>
                 <p>Ensuring your web applications are protected against advanced threats with our extensive expertise.</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" style="width: 70%">
                 <h3>API Security</h3>
                 <p>From securing endpoints to preventing API abuse, we fortify your application programming interfaces.</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" style="width: 60%">
                 <h3>Mobile Security</h3>
                 <p>Comprehensive security audits for Android apps to prevent data breaches and malware exploits.</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" style="width: 40%">
                 <h3>Network Pentesting</h3>
                 <p>Simulating real-world attacks to uncover vulnerabilities in your network infrastructure.</p>
+            </div>
+            <div class="service-box" style="width: 40%">
+                <h3>Source-Code Auditing</h3>
+                <p>Comprehensive review of your codebase to identify vulnerabilities and improve security and compliance.</p>
+            </div>
+            <div class="service-box" style="width: 80%">
+                <h3>Active Directory Pentesting</h3>
+                <p>In-depth evaluation of your Active Directory to uncover misconfigurations and enhance access controls.</p>
             </div>
         </div>
     </section>
@@ -225,15 +337,23 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <h2>Our Experience</h2>
-        <p>With over 150 successful projects, we bring unparalleled expertise to each engagement. Our team has extensive knowledge in web, API, and network pentesting. We are currently working as security consultants, applying our skills to protect and enhance cybersecurity for our clients.</p>
-        <div class="experience-container">
-            <div class="experience-box">
-                <h3>Project 1: Web Security for XYZ Corp</h3>
-                <p>Delivered a comprehensive vulnerability assessment that identified 20+ security gaps, leading to improved resilience.</p>
-            </div>
-            <div class="experience-box">
-                <h3>Project 2: Mobile App Pentest for ABC Ltd.</h3>
-                <p>Identified critical issues in Android applications, securing data of over 1 million users.</p>
+        <p style="color: #949494; text-align: justify;">With a proven track record of delivering over 200 successful security projects, we offer unmatched expertise in a wide range of cybersecurity domains. Our team has in-depth experience in web, Android, API, and network penetration testing, as well as specialized skills in Active Directory assessments and source code reviews. Over the course of our work, we have identified and remediated over 1,000 vulnerabilities, including numerous critical and high-severity issues that posed significant risks to organizations. As dedicated security consultants, we actively apply cutting-edge methodologies to uncover vulnerabilities, safeguard systems, and enhance the overall security posture of our clients. Our comprehensive approach ensures that every engagement benefits from our deep technical knowledge, precision, and unwavering commitment to excellence.</p>
+        <div class="marquee">
+            <div class="marquee--inner">
+                <span>
+                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" width="200px">
+                    <img src="https://cdn.worldvectorlogo.com/logos/hubspot.svg" width="200px">
+                    <img src="https://www.freepnglogos.com/uploads/oppo-logo-png/oppo-logo-and-symbol-meaning-history-png-3.png" width="200px">
+                    <img src="https://freepngdesign.com/content/uploads/images/volkswagen-logo-8515.png" width="200px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lyft_logo.svg/398px-Lyft_logo.svg.png" width="100px">
+                </span>
+                <span>
+                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" width="200px">
+                    <img src="https://cdn.worldvectorlogo.com/logos/hubspot.svg" width="200px">
+                    <img src="https://www.freepnglogos.com/uploads/oppo-logo-png/oppo-logo-and-symbol-meaning-history-png-3.png" width="200px">
+                    <img src="https://freepngdesign.com/content/uploads/images/volkswagen-logo-8515.png" width="200px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lyft_logo.svg/398px-Lyft_logo.svg.png" width="100px">
+                </span>
             </div>
         </div>
     </section>
@@ -243,28 +363,40 @@
         <h2>Our Certifications</h2>
         <div class="certifications-container">
             <div class="cert-box">
+                <img src="https://images.credly.com/size/680x680/images/ec81134d-e80b-4eb5-ae07-0eb8e1a60fcd/image.png" width="100px">
                 <h3>OSCP</h3>
                 <p>Offensive Security Certified Professional</p>
             </div>
             <div class="cert-box">
+                <img src="https://secops.group/wp-content/uploads/2023/02/certified-network-pentester.png"  width="100px">
                 <h3>CNPen</h3>
                 <p>Certified Network Pentester</p>
             </div>
             <div class="cert-box">
+                <img src="https://secops.group/wp-content/uploads/2023/01/certified-appsec-pentester.png"  width="100px">
                 <h3>CAPen</h3>
                 <p>Certified AppSec Pentester</p>
+            </div>
+            <div class="cert-box">
+                <img src="https://entoplearning.com/wp-content/uploads/2023/12/fgfdgfdggf.png"  width="100px" style="border-radius: 50px;">
+                <h3>CEH</h3>
+                <p>Certified Ethical Hacker</p>
+            </div>
+            <div class="cert-box">
+                <img src="https://avatars.githubusercontent.com/u/13155350?s=200&v=4"  width="100px">
+                <h3>Linux+</h3>
+                <p>CompTIA Linux+</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form class="contact-form" action="submit_form.php" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <h2>Contact Us</h2>
+        <div class="contact-form-container">
+            <a href="mailto:piyushthepal@gmail.com"><img src="https://i0.wp.com/3factsinc.org/wp-content/uploads/2019/12/crop-0-0-1000-1080-0-email-icon-outline-email-icon-isolated-on-white-vector-21742596.png?fit=1000%2C1080&ssl=1" width="285vw"></a>
+            <p class="contact-form-desc">Email</p>
+        </div>
         </form>
     </section>
 
